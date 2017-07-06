@@ -144,52 +144,64 @@ public class PatientRegistrationLocalServiceClpInvoker {
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName46 = "deletePatient";
+		_methodName46 = "updatePatientWithPCPInfo";
 
 		_methodParameterTypes46 = new String[] {
+				"long", "long", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"java.lang.String", "int", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"com.liferay.portal.service.ServiceContext"
+			};
+
+		_methodName47 = "deletePatient";
+
+		_methodParameterTypes47 = new String[] {
 				"long", "com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName48 = "searchPatients";
+		_methodName49 = "searchPatients";
 
-		_methodParameterTypes48 = new String[] {
+		_methodParameterTypes49 = new String[] {
 				"java.util.Map", "com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName49 = "getPatientSearchResults";
+		_methodName50 = "getPatientSearchResults";
 
-		_methodParameterTypes49 = new String[] {
+		_methodParameterTypes50 = new String[] {
 				"java.lang.String", "java.lang.String", "int", "boolean", "int",
 				"int"
 			};
 
-		_methodName50 = "getPatientSearchResultsForKeywords";
+		_methodName51 = "getPatientSearchResultsForKeywords";
 
-		_methodParameterTypes50 = new String[] {
+		_methodParameterTypes51 = new String[] {
 				"java.lang.String", "boolean", "int", "int"
 			};
 
-		_methodName51 = "getPatientsSearchCount";
+		_methodName52 = "getPatientsSearchCount";
 
-		_methodParameterTypes51 = new String[] {
+		_methodParameterTypes52 = new String[] {
 				"java.lang.String", "java.lang.String", "int", "boolean"
 			};
 
-		_methodName52 = "getPatientsSearchCountForKeywords";
+		_methodName53 = "getPatientsSearchCountForKeywords";
 
-		_methodParameterTypes52 = new String[] { "java.lang.String", "boolean" };
+		_methodParameterTypes53 = new String[] { "java.lang.String", "boolean" };
 
-		_methodName55 = "getPatient";
+		_methodName56 = "getPatient";
 
-		_methodParameterTypes55 = new String[] { "long" };
+		_methodParameterTypes56 = new String[] { "long" };
 
-		_methodName56 = "getPatientsByLastName";
+		_methodName57 = "getPatientsByLastName";
 
-		_methodParameterTypes56 = new String[] { "java.lang.String" };
+		_methodParameterTypes57 = new String[] { "java.lang.String" };
 
-		_methodName57 = "addNewPatient";
+		_methodName58 = "addNewPatient";
 
-		_methodParameterTypes57 = new String[] {
+		_methodParameterTypes58 = new String[] {
 				"long", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
@@ -197,9 +209,9 @@ public class PatientRegistrationLocalServiceClpInvoker {
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName58 = "addNewPatientWithPCPInfo";
+		_methodName59 = "addNewPatientWithPCPInfo";
 
-		_methodParameterTypes58 = new String[] {
+		_methodParameterTypes59 = new String[] {
 				"long", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
@@ -356,18 +368,38 @@ public class PatientRegistrationLocalServiceClpInvoker {
 
 		if (_methodName46.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes46, parameterTypes)) {
-			return PatientRegistrationLocalServiceUtil.deletePatient(((Long)arguments[0]).longValue(),
-				(com.liferay.portal.service.ServiceContext)arguments[1]);
+			return PatientRegistrationLocalServiceUtil.updatePatientWithPCPInfo(((Long)arguments[0]).longValue(),
+				((Long)arguments[1]).longValue(),
+				(java.lang.String)arguments[2], (java.lang.String)arguments[3],
+				(java.lang.String)arguments[4], (java.lang.String)arguments[5],
+				(java.lang.String)arguments[6], (java.lang.String)arguments[7],
+				(java.lang.String)arguments[8], (java.lang.String)arguments[9],
+				(java.lang.String)arguments[10],
+				((Integer)arguments[11]).intValue(),
+				(java.lang.String)arguments[12],
+				(java.lang.String)arguments[13],
+				(java.lang.String)arguments[14],
+				(java.lang.String)arguments[15],
+				(java.lang.String)arguments[16],
+				(java.lang.String)arguments[17],
+				(java.lang.String)arguments[18],
+				(com.liferay.portal.service.ServiceContext)arguments[19]);
 		}
 
-		if (_methodName48.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes48, parameterTypes)) {
-			return PatientRegistrationLocalServiceUtil.searchPatients((java.util.Map<java.lang.String, java.lang.String>)arguments[0],
+		if (_methodName47.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes47, parameterTypes)) {
+			return PatientRegistrationLocalServiceUtil.deletePatient(((Long)arguments[0]).longValue(),
 				(com.liferay.portal.service.ServiceContext)arguments[1]);
 		}
 
 		if (_methodName49.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes49, parameterTypes)) {
+			return PatientRegistrationLocalServiceUtil.searchPatients((java.util.Map<java.lang.String, java.lang.String>)arguments[0],
+				(com.liferay.portal.service.ServiceContext)arguments[1]);
+		}
+
+		if (_methodName50.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
 			return PatientRegistrationLocalServiceUtil.getPatientSearchResults((java.lang.String)arguments[0],
 				(java.lang.String)arguments[1],
 				((Integer)arguments[2]).intValue(),
@@ -376,40 +408,40 @@ public class PatientRegistrationLocalServiceClpInvoker {
 				((Integer)arguments[5]).intValue());
 		}
 
-		if (_methodName50.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
+		if (_methodName51.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes51, parameterTypes)) {
 			return PatientRegistrationLocalServiceUtil.getPatientSearchResultsForKeywords((java.lang.String)arguments[0],
 				((Boolean)arguments[1]).booleanValue(),
 				((Integer)arguments[2]).intValue(),
 				((Integer)arguments[3]).intValue());
 		}
 
-		if (_methodName51.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes51, parameterTypes)) {
+		if (_methodName52.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
 			return PatientRegistrationLocalServiceUtil.getPatientsSearchCount((java.lang.String)arguments[0],
 				(java.lang.String)arguments[1],
 				((Integer)arguments[2]).intValue(),
 				((Boolean)arguments[3]).booleanValue());
 		}
 
-		if (_methodName52.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
+		if (_methodName53.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes53, parameterTypes)) {
 			return PatientRegistrationLocalServiceUtil.getPatientsSearchCountForKeywords((java.lang.String)arguments[0],
 				((Boolean)arguments[1]).booleanValue());
 		}
 
-		if (_methodName55.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes55, parameterTypes)) {
-			return PatientRegistrationLocalServiceUtil.getPatient(((Long)arguments[0]).longValue());
-		}
-
 		if (_methodName56.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes56, parameterTypes)) {
-			return PatientRegistrationLocalServiceUtil.getPatientsByLastName((java.lang.String)arguments[0]);
+			return PatientRegistrationLocalServiceUtil.getPatient(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName57.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes57, parameterTypes)) {
+			return PatientRegistrationLocalServiceUtil.getPatientsByLastName((java.lang.String)arguments[0]);
+		}
+
+		if (_methodName58.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes58, parameterTypes)) {
 			return PatientRegistrationLocalServiceUtil.addNewPatient(((Long)arguments[0]).longValue(),
 				(java.lang.String)arguments[1], (java.lang.String)arguments[2],
 				(java.lang.String)arguments[3], (java.lang.String)arguments[4],
@@ -421,8 +453,8 @@ public class PatientRegistrationLocalServiceClpInvoker {
 				(com.liferay.portal.service.ServiceContext)arguments[12]);
 		}
 
-		if (_methodName58.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes58, parameterTypes)) {
+		if (_methodName59.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes59, parameterTypes)) {
 			return PatientRegistrationLocalServiceUtil.addNewPatientWithPCPInfo(((Long)arguments[0]).longValue(),
 				(java.lang.String)arguments[1], (java.lang.String)arguments[2],
 				(java.lang.String)arguments[3], (java.lang.String)arguments[4],
@@ -493,8 +525,8 @@ public class PatientRegistrationLocalServiceClpInvoker {
 	private String[] _methodParameterTypes45;
 	private String _methodName46;
 	private String[] _methodParameterTypes46;
-	private String _methodName48;
-	private String[] _methodParameterTypes48;
+	private String _methodName47;
+	private String[] _methodParameterTypes47;
 	private String _methodName49;
 	private String[] _methodParameterTypes49;
 	private String _methodName50;
@@ -503,12 +535,14 @@ public class PatientRegistrationLocalServiceClpInvoker {
 	private String[] _methodParameterTypes51;
 	private String _methodName52;
 	private String[] _methodParameterTypes52;
-	private String _methodName55;
-	private String[] _methodParameterTypes55;
+	private String _methodName53;
+	private String[] _methodParameterTypes53;
 	private String _methodName56;
 	private String[] _methodParameterTypes56;
 	private String _methodName57;
 	private String[] _methodParameterTypes57;
 	private String _methodName58;
 	private String[] _methodParameterTypes58;
+	private String _methodName59;
+	private String[] _methodParameterTypes59;
 }

@@ -12,7 +12,7 @@
      <portlet:param name="jspPage" value="/html/patientregistration/patientregistrationform.jsp" />
  </portlet:renderURL>
  
- <input class="span2 btn" onClick="<portlet:namespace/>doRedirect()" value="Add Another Patient"/>
+ <input class="span5 btn" onClick="<portlet:namespace/>doRedirect()" value="Add Another Patient"/>
 
 <script>
     function <portlet:namespace/>doRedirect() {

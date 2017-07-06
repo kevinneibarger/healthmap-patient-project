@@ -1,10 +1,26 @@
 body {
-  background: #eee;
-  text-align: center; }
+  background: #eee; }
 
-#patient-reg-table {
-  margin: 0 auto;
-  text-align: left; }
+/* #patient-reg-table table
+{
+    margin: 0 auto;
+    text-align: left;
+    align: left;
+} */
+table {
+  margin: 0 auto; }
+
+.registration-form-header {
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  font-family: Tahoma, "Time New Roman"; }
+
+.patient-view-header {
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  font-family: Tahoma, "Time New Roman"; }
 
 #patient-btn-table {
   margin: 0 auto;
@@ -34,4 +50,18 @@ td {
 
 th {
   border-bottom: 1px solid black; }
+
+.patient-info-label {
+  font-family: Tahoma, "Time New Roman";
+  font-size: 15px;
+  font-color: #3797B6; }
+
+.patient-info-data {
+  font-family: Tahoma, "Time New Roman";
+  font-size: 15px;
+  font-color: #3797B6;
+  font-weight: bold; }
+
+.search-terms-patient {
+  margin-top: 10px; }
 

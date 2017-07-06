@@ -1,5 +1,4 @@
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet"%>
-<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui"%>
+<%@ include file="../patientsearch/patientSearchInit.jsp" %>
 
 <portlet:actionURL name="addNewPatient" var="addNewPatientURL" windowState="normal"></portlet:actionURL>
 <input type="hidden" value="<%=addNewPatientURL%>" id="formURL"/>
@@ -161,7 +160,13 @@
 	});
 </script>
 
+<% if(SessionMessages.contains(renderRequest.getPortletSession(),"new-patient-add-success")){%>
+<liferay-ui:success key="new-patient-add-success" message="The New Patient was successfully added to the database" />
+<%} %>
+
  <form id="<portlet:namespace />patientRegForm" action="<%=addNewPatientURL%>" method="post">
+ 	<h4 class="registration-form-header">Patient Registration Form</h4>
+ 	<div class="separator"></div>
 	 <table id="patient-reg-table">
 		<tr>
 			<td align="right">First Name:</td>
@@ -270,42 +275,35 @@
 			<td>&nbsp;</td>
 		</tr>
 		
-		<%-- <tr>
-			<td align="right">Do you have a Primary Care Provider (PCP)? &nbsp;</td>
-			<td><input type="checkbox" name="<portlet:namespace />pcpYes" id="<portlet:namespace />pcpYes" class="pcpYesChecked"/>&nbsp;Yes
-			&nbsp; &nbsp;<input type="checkbox" name="<portlet:namespace />pcpNo" id="<portlet:namespace />pcpNo" />&nbsp;No</td>
-			<td>&nbsp;</td>
-		</tr> --%>
-		
 		<tr>
 			<td align="right">Do you have a Primary Care Provider (PCP)? &nbsp;</td>
-			<td><input type="checkbox" name="<portlet:namespace />pcpYes" id="<portlet:namespace />pcpYes" class="pcpYesChecked"/>&nbsp;Yes</td>
+			<td><input type="checkbox" name="<portlet:namespace />pcpYes" id="<portlet:namespace />pcpYes" class="pcpYesChecked"/></td>
 			<td>&nbsp;</td>
 		</tr>
 		
 		<!--  Show If yes is selected from the PCP -->
 		<tr class="pcpInformation">
-			<td align="right">PCP First Name</td>
+			<td align="right">PCP First Name:</td>
 			<td><input name="<portlet:namespace />pcpFName" id="<portlet:namespace />pcpFName" /></td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr class="pcpInformation">
-			<td align="right">PCP Last Name</td>
+			<td align="right">PCP Last Name:</td>
 			<td><input name="<portlet:namespace />pcpLName" id="<portlet:namespace />pcpLName" /></td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr class="pcpInformation">
-			<td align="right">PCP Address</td>
+			<td align="right">PCP Address:</td>
 			<td><input name="<portlet:namespace />pcpAddress" id="<portlet:namespace />pcpAddress" /></td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr class="pcpInformation">
-			<td align="right">PCP City</td>
+			<td align="right">PCP City:</td>
 			<td><input name="<portlet:namespace />pcpCity" id="<portlet:namespace />pcpCity" /></td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr class="pcpInformation">
-			<td align="right">PCP State</td>
+			<td align="right">PCP State:</td>
 			<td><select name="<portlet:namespace />pcpState" id="<portlet:namespace />pcpState">
 					<option value="">-- Select a State --</option>
 					<option value="AL">Alabama</option>
@@ -363,7 +361,7 @@
 			<td>&nbsp;</td>
 		</tr>
 		<tr class="pcpInformation">
-			<td align="right">PCP Zip Code</td>
+			<td align="right">PCP Zip Code:</td>
 			<td><input name="<portlet:namespace />pcpZipCode" id="<portlet:namespace />pcpZipCode" /></td>
 			<td>&nbsp;</td>
 		</tr>

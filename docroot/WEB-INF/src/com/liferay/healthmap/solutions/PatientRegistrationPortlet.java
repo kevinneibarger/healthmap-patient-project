@@ -110,14 +110,14 @@ public class PatientRegistrationPortlet extends MVCPortlet {
 		
 			SessionMessages.add(request.getPortletSession(),"new-patient-add-success");
 			response.setRenderParameter("mvcPath",
-		            "/html/patientregistration/patientRegistrationAddSuccess.jsp");
+		            "/html/patientregistration/patientregistrationform.jsp");
 			
 	    } catch (Exception e) {
 	    	e.printStackTrace();
 	        SessionErrors.add(request, e.getClass().getName());
 
 	        response.setRenderParameter("mvcPath",
-	            "/html/patientregistration/patientRegistrationAddError.jsp");
+	            "/html/patientregistration/patientregistrationform.jsp");
 	    }
 	}
 

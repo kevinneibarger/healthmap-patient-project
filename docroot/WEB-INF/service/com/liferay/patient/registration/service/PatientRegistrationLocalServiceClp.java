@@ -146,52 +146,64 @@ public class PatientRegistrationLocalServiceClp
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName25 = "deletePatient";
+		_methodName25 = "updatePatientWithPCPInfo";
 
 		_methodParameterTypes25 = new String[] {
+				"long", "long", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"java.lang.String", "int", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"com.liferay.portal.service.ServiceContext"
+			};
+
+		_methodName26 = "deletePatient";
+
+		_methodParameterTypes26 = new String[] {
 				"long", "com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName26 = "searchPatients";
+		_methodName27 = "searchPatients";
 
-		_methodParameterTypes26 = new String[] {
+		_methodParameterTypes27 = new String[] {
 				"java.util.Map", "com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName27 = "getPatientSearchResults";
+		_methodName28 = "getPatientSearchResults";
 
-		_methodParameterTypes27 = new String[] {
+		_methodParameterTypes28 = new String[] {
 				"java.lang.String", "java.lang.String", "int", "boolean", "int",
 				"int"
 			};
 
-		_methodName28 = "getPatientSearchResultsForKeywords";
+		_methodName29 = "getPatientSearchResultsForKeywords";
 
-		_methodParameterTypes28 = new String[] {
+		_methodParameterTypes29 = new String[] {
 				"java.lang.String", "boolean", "int", "int"
 			};
 
-		_methodName29 = "getPatientsSearchCount";
+		_methodName30 = "getPatientsSearchCount";
 
-		_methodParameterTypes29 = new String[] {
+		_methodParameterTypes30 = new String[] {
 				"java.lang.String", "java.lang.String", "int", "boolean"
 			};
 
-		_methodName30 = "getPatientsSearchCountForKeywords";
+		_methodName31 = "getPatientsSearchCountForKeywords";
 
-		_methodParameterTypes30 = new String[] { "java.lang.String", "boolean" };
+		_methodParameterTypes31 = new String[] { "java.lang.String", "boolean" };
 
-		_methodName31 = "getPatient";
+		_methodName32 = "getPatient";
 
-		_methodParameterTypes31 = new String[] { "long" };
+		_methodParameterTypes32 = new String[] { "long" };
 
-		_methodName32 = "getPatientsByLastName";
+		_methodName33 = "getPatientsByLastName";
 
-		_methodParameterTypes32 = new String[] { "java.lang.String" };
+		_methodParameterTypes33 = new String[] { "java.lang.String" };
 
-		_methodName33 = "addNewPatient";
+		_methodName34 = "addNewPatient";
 
-		_methodParameterTypes33 = new String[] {
+		_methodParameterTypes34 = new String[] {
 				"long", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
@@ -199,9 +211,9 @@ public class PatientRegistrationLocalServiceClp
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName34 = "addNewPatientWithPCPInfo";
+		_methodName35 = "addNewPatientWithPCPInfo";
 
-		_methodParameterTypes34 = new String[] {
+		_methodParameterTypes35 = new String[] {
 				"long", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
@@ -999,8 +1011,16 @@ public class PatientRegistrationLocalServiceClp
 	}
 
 	@Override
-	public com.liferay.patient.registration.model.PatientRegistration deletePatient(
-		long patientId, com.liferay.portal.service.ServiceContext serviceContext)
+	public com.liferay.patient.registration.model.PatientRegistration updatePatientWithPCPInfo(
+		long userId, long patientId, java.lang.String firstName,
+		java.lang.String lastName, java.lang.String address,
+		java.lang.String city, java.lang.String state, java.lang.String zip,
+		java.lang.String email, java.lang.String phoneNumber,
+		java.lang.String dob, int optIn, java.lang.String referringPractice,
+		java.lang.String pcpFirstName, java.lang.String pcpLastName,
+		java.lang.String pcpAddress, java.lang.String pcpCity,
+		java.lang.String pcpState, java.lang.String pcpZipCode,
+		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -1008,6 +1028,81 @@ public class PatientRegistrationLocalServiceClp
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName25,
 					_methodParameterTypes25,
+					new Object[] {
+						userId,
+						
+					patientId,
+						
+					ClpSerializer.translateInput(firstName),
+						
+					ClpSerializer.translateInput(lastName),
+						
+					ClpSerializer.translateInput(address),
+						
+					ClpSerializer.translateInput(city),
+						
+					ClpSerializer.translateInput(state),
+						
+					ClpSerializer.translateInput(zip),
+						
+					ClpSerializer.translateInput(email),
+						
+					ClpSerializer.translateInput(phoneNumber),
+						
+					ClpSerializer.translateInput(dob),
+						
+					optIn,
+						
+					ClpSerializer.translateInput(referringPractice),
+						
+					ClpSerializer.translateInput(pcpFirstName),
+						
+					ClpSerializer.translateInput(pcpLastName),
+						
+					ClpSerializer.translateInput(pcpAddress),
+						
+					ClpSerializer.translateInput(pcpCity),
+						
+					ClpSerializer.translateInput(pcpState),
+						
+					ClpSerializer.translateInput(pcpZipCode),
+						
+					ClpSerializer.translateInput(serviceContext)
+					});
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (com.liferay.patient.registration.model.PatientRegistration)ClpSerializer.translateOutput(returnObj);
+	}
+
+	@Override
+	public com.liferay.patient.registration.model.PatientRegistration deletePatient(
+		long patientId, com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName26,
+					_methodParameterTypes26,
 					new Object[] {
 						patientId,
 						
@@ -1046,8 +1141,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName26,
-					_methodParameterTypes26,
+			returnObj = _invokableLocalService.invokeMethod(_methodName27,
+					_methodParameterTypes27,
 					new Object[] {
 						ClpSerializer.translateInput(searchCriteriaMap),
 						
@@ -1085,8 +1180,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName27,
-					_methodParameterTypes27,
+			returnObj = _invokableLocalService.invokeMethod(_methodName28,
+					_methodParameterTypes28,
 					new Object[] {
 						ClpSerializer.translateInput(firstName),
 						
@@ -1127,8 +1222,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName28,
-					_methodParameterTypes28,
+			returnObj = _invokableLocalService.invokeMethod(_methodName29,
+					_methodParameterTypes29,
 					new Object[] {
 						ClpSerializer.translateInput(keywords),
 						
@@ -1165,8 +1260,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName29,
-					_methodParameterTypes29,
+			returnObj = _invokableLocalService.invokeMethod(_methodName30,
+					_methodParameterTypes30,
 					new Object[] {
 						ClpSerializer.translateInput(firstName),
 						
@@ -1203,8 +1298,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName30,
-					_methodParameterTypes30,
+			returnObj = _invokableLocalService.invokeMethod(_methodName31,
+					_methodParameterTypes31,
 					new Object[] {
 						ClpSerializer.translateInput(keywords),
 						
@@ -1238,8 +1333,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName31,
-					_methodParameterTypes31, new Object[] { groupId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName32,
+					_methodParameterTypes32, new Object[] { groupId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1271,8 +1366,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName32,
-					_methodParameterTypes32,
+			returnObj = _invokableLocalService.invokeMethod(_methodName33,
+					_methodParameterTypes33,
 					new Object[] { ClpSerializer.translateInput(lastName) });
 		}
 		catch (Throwable t) {
@@ -1307,8 +1402,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName33,
-					_methodParameterTypes33,
+			returnObj = _invokableLocalService.invokeMethod(_methodName34,
+					_methodParameterTypes34,
 					new Object[] {
 						userId,
 						
@@ -1376,8 +1471,8 @@ public class PatientRegistrationLocalServiceClp
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName34,
-					_methodParameterTypes34,
+			returnObj = _invokableLocalService.invokeMethod(_methodName35,
+					_methodParameterTypes35,
 					new Object[] {
 						userId,
 						
@@ -1510,4 +1605,6 @@ public class PatientRegistrationLocalServiceClp
 	private String[] _methodParameterTypes33;
 	private String _methodName34;
 	private String[] _methodParameterTypes34;
+	private String _methodName35;
+	private String[] _methodParameterTypes35;
 }

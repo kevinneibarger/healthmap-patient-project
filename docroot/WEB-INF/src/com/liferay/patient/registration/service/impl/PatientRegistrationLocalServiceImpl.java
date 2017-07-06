@@ -119,6 +119,75 @@ public class PatientRegistrationLocalServiceImpl
 		return patient;
 	}
 	
+	public PatientRegistration updatePatientWithPCPInfo(long userId, long patientId, String firstName, String lastName,
+			String address, String city, String state, String zip, String email, String phoneNumber, String dob,
+			int optIn, String referringPractice, String pcpFirstName, String pcpLastName, String pcpAddress, String pcpCity, String pcpState, String pcpZipCode,
+			ServiceContext serviceContext)
+			throws SystemException, PortalException {
+
+		long groupId = serviceContext.getScopeGroupId();
+		
+		User user = userPersistence.findByPrimaryKey(userId);
+		
+	    System.out.println("-------- From LOCAL Service - UPDATE -------");
+		System.out.println("---- First Name: " + firstName + " ----");
+		System.out.println("---- Last Name: " + lastName + " ----");
+		System.out.println("---- Address: " + address + " ----");
+		System.out.println("---- City: " + city + " ----");
+		System.out.println("---- State: " + state + " ----");
+		System.out.println("---- Zip Code: " + zip + " ----");
+		System.out.println("---- Email: " + email + " ----");
+		System.out.println("---- Phone Number: " + phoneNumber + " ----");
+		System.out.println("---- DOB: " + dob + " ----");
+		System.out.println("---- Opt In: " + optIn + " ----");
+		System.out.println("---- Referring Practice: " + referringPractice + " ----");
+
+		System.out.println("---- PCP First Name: "+pcpFirstName+" ----");
+		System.out.println("---- PCP Last Name: "+pcpLastName+" ----");
+		System.out.println("---- PCP Address: "+pcpAddress+" ----");
+		System.out.println("---- PCP City: "+pcpCity+" ----");
+		System.out.println("---- PCP State: "+pcpState+" ----");
+		System.out.println("---- PCP Zip Code: "+pcpZipCode+" ----");
+		
+		// Get current Patient for Updating
+		PatientRegistration patient = patientRegistrationPersistence.findByPatientId(patientId);
+		
+		validate(firstName);
+		validate(lastName);
+		validate(address);
+		validate(city);
+		validate(state);
+		validate(zip);
+		validate(email);
+		validate(dob);
+		validate(phoneNumber);
+		//validate(referringPractice); -- Not required.
+		
+		// Set actual columns
+		patient.setAddress1(address);
+		patient.setFirstName(firstName);
+		patient.setLastName(lastName);
+		patient.setCity(city);
+		patient.setState(state);
+		patient.setZipCode(zip);
+		patient.setEmailAddr(email);
+		patient.setPhoneNumber(phoneNumber);
+		patient.setDob(dob);
+		patient.setOptIn(optIn);
+		patient.setReferringPractice(referringPractice);
+		patient.setPcpFirstName(pcpFirstName);
+		patient.setPcpLastName(pcpLastName);
+		patient.setPcpAddress(pcpAddress);
+		patient.setPcpCity(pcpCity);
+		patient.setPcpState(pcpState);
+		patient.setPcpZipCode(pcpZipCode);
+		
+		System.out.println(" -----> Updating Existing User With PCP Info <---- \n");
+		patientRegistrationPersistence.update(patient);
+		
+		return patient;
+	}
+	
 	public PatientRegistration deletePatient(long patientId, ServiceContext serviceContext)
 		    throws PortalException, SystemException {
 
@@ -241,6 +310,7 @@ public class PatientRegistrationLocalServiceImpl
 			junction = RestrictionsFactoryUtil.disjunction();
 		}
 
+		System.out.println("Running Dynamic Query with First Name "+firstName+" Last Name: "+lastName+" Opt In: "+optInFlag);
 		if (Validator.isNotNull(firstName)) {
 			Property property = PropertyFactoryUtil.forName("firstName");
 			String value = (new StringBuilder("%")).append(firstName).append("%").toString();
@@ -317,7 +387,7 @@ public class PatientRegistrationLocalServiceImpl
 		System.out.println("---- State: "+state+" ----");
 		System.out.println("---- Zip Code: "+zip+" ----");
 		System.out.println("---- Email: "+email+" ----");
-		System.out.println("---- Phone Number: "+email+" ----");
+		System.out.println("---- Phone Number: "+phoneNumber+" ----");
 		System.out.println("---- DOB: "+dob+" ----");
 		System.out.println("---- Opt In: "+optIn+" ----");
 		System.out.println("---- Referring Practice: "+referringPractice+" ----");
@@ -357,11 +427,8 @@ public class PatientRegistrationLocalServiceImpl
 		patient.setReferringPractice(referringPractice);
 		
 		patient.setExpandoBridgeAttributes(serviceContext);
-		System.out.println("\nUpdating!!! \n\n");
+		System.out.println("\n Adding new patient!!! \n\n");
 		patientRegistrationPersistence.update(patient);
-		
-//		resourceLocalService.addResources(user.getCompanyId(), groupId, userId,
-//			       PatientRegistration.class.getName(), patientId, false, true, true);
 		
 		return patient;
 	}
@@ -383,6 +450,7 @@ public class PatientRegistrationLocalServiceImpl
 		System.out.println("---- State: "+state+" ----");
 		System.out.println("---- Zip Code: "+zip+" ----");
 		System.out.println("---- Email: "+email+" ----");
+		System.out.println("---- Phone Number: "+phoneNumber+" ----");
 		System.out.println("---- DOB: "+dob+" ----");
 		System.out.println("---- Opt In: "+optIn+" ----");
 		System.out.println("---- Referring Practice: "+referringPractice+" ----");
@@ -401,6 +469,7 @@ public class PatientRegistrationLocalServiceImpl
 		validate(state);
 		validate(zip);
 		validate(email);
+		validate(phoneNumber);
 		validate(dob);
 		validate(referringPractice);
 		
@@ -430,6 +499,7 @@ public class PatientRegistrationLocalServiceImpl
 		patient.setState(state);
 		patient.setZipCode(zip);
 		patient.setEmailAddr(email);
+		patient.setPhoneNumber(phoneNumber);
 		patient.setDob(dob);
 		patient.setOptIn(optIn);
 		patient.setReferringPractice(referringPractice);
@@ -441,7 +511,7 @@ public class PatientRegistrationLocalServiceImpl
 		patient.setPcpZipCode(pcpZipCode);
 		
 		patient.setExpandoBridgeAttributes(serviceContext);
-		System.out.println("\nUpdating - With PCP Info \n\n");
+		System.out.println("\nAdding - With PCP Info \n\n");
 		patientRegistrationPersistence.update(patient);
 		
 //		resourceLocalService.addResources(user.getCompanyId(), groupId, userId,

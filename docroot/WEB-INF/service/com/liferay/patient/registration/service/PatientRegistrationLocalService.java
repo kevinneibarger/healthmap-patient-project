@@ -324,6 +324,19 @@ public interface PatientRegistrationLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
+	public com.liferay.patient.registration.model.PatientRegistration updatePatientWithPCPInfo(
+		long userId, long patientId, java.lang.String firstName,
+		java.lang.String lastName, java.lang.String address,
+		java.lang.String city, java.lang.String state, java.lang.String zip,
+		java.lang.String email, java.lang.String phoneNumber,
+		java.lang.String dob, int optIn, java.lang.String referringPractice,
+		java.lang.String pcpFirstName, java.lang.String pcpLastName,
+		java.lang.String pcpAddress, java.lang.String pcpCity,
+		java.lang.String pcpState, java.lang.String pcpZipCode,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
 	public com.liferay.patient.registration.model.PatientRegistration deletePatient(
 		long patientId, com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,

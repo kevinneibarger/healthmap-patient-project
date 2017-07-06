@@ -3,7 +3,14 @@
 <%@ page import="com.liferay.healthmap.util.PatientInfoComparator" %>
 <%@ page import="java.util.List" %> --%>
 
+
 <%@ include file="patientSearchInit.jsp" %>
+
+<% if(SessionMessages.contains(renderRequest.getPortletSession(),"patient-update-success")){%>
+<liferay-ui:success key="patient-update-success" message="The Patient was successfully updated in the database" />
+<%} %>
+
+
 <%
  //Get the columns for sort purposes
 String sortingColumn = ParamUtil.getString(request, "orderByCol"); 
