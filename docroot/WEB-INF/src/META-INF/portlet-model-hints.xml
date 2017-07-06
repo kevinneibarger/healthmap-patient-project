@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.patient.registration.model.PatientRegistration">
+		<field name="uuid" type="String" />
+		<field name="patientRegistrationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="address1" type="String" />
+		<field name="city" type="String" />
+		<field name="state" type="String" />
+		<field name="zipCode" type="String" />
+		<field name="emailAddr" type="String" />
+		<field name="dob" type="String" />
+		<field name="optIn" type="int" />
+		<field name="phoneNumber" type="String" />
+		<field name="pcpFirstName" type="String" />
+		<field name="pcpLastName" type="String" />
+		<field name="pcpAddress" type="String" />
+		<field name="pcpCity" type="String" />
+		<field name="pcpState" type="String" />
+		<field name="pcpZipCode" type="String" />
+		<field name="referringPractice" type="String" />
+	</model>
+</model-hints>

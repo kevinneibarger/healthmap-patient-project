@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.liferay.patient.registration.model.PatientRegistration" />
+	<class name="com.liferay.patient.registration.model.impl.PatientRegistrationImpl" table="PatientReg_PatientRegistration">
+		<cache usage="read-write" />
+		<id name="patientRegistrationId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="firstName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="lastName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="address1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="city" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="state" type="com.liferay.portal.dao.orm.hibernate.StringType" column="state_" />
+		<property name="zipCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emailAddr" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dob" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="optIn" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="phoneNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pcpFirstName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pcpLastName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pcpAddress" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pcpCity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pcpState" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pcpZipCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="referringPractice" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

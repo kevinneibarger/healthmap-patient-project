@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.liferay.patient.registration">
+	<author>kneibarger</author>
+	<namespace>PatientReg</namespace>
+
+	<entity name="PatientRegistration" local-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="patientRegistrationId" type="long"
+			primary="true">
+		</column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+        <column name="firstName" type="String"></column>
+        <column name="lastName" type="String"></column>
+        <column name="address1" type="String"></column>
+        <column name="city" type="String"></column>
+        <column name="state" type="String"></column>
+        <column name="zipCode" type="String"></column>
+        <column name="emailAddr" type="String"></column>
+        <column name="dob" type="String"></column>
+        <column name="optIn" type="int"></column>
+        <column name="phoneNumber" type="String"></column>
+        <column name="pcpFirstName" type="String"></column>
+        <column name="pcpLastName" type="String"></column>
+        <column name="pcpAddress" type="String"></column>
+        <column name="pcpCity" type="String"></column>
+        <column name="pcpState" type="String"></column>
+        <column name="pcpZipCode" type="String"></column>
+        <column name="referringPractice" type="String"></column>
+        <finder name="GroupId" return-type="Collection">
+            <finder-column name="groupId"></finder-column>
+        </finder>
+        <finder name="FirstName" return-type="Collection">
+            <finder-column name="firstName"></finder-column>
+        </finder>
+        <finder name="FirstNameLastName" return-type="Collection">
+            <finder-column name="firstName"></finder-column>
+            <finder-column name="lastName"></finder-column>
+        </finder>
+        <finder name="LastName" return-type="Collection">
+            <finder-column name="lastName"></finder-column>
+        </finder>
+        <finder name="PatientId" return-type="Object">
+            <finder-column name="patientRegistrationId"></finder-column>
+        </finder>
+        <finder name="FirstNameLastNameOptIn" return-type="Collection">
+            <finder-column name="firstName"></finder-column>
+            <finder-column name="lastName"></finder-column>
+            <finder-column name="optIn"></finder-column>
+        </finder>
+        <finder name="FirstNameOptIn" return-type="Collection">
+            <finder-column name="firstName"></finder-column>
+            <finder-column name="optIn"></finder-column>
+        </finder>
+        <finder name="LastNameOptIn" return-type="Collection">
+            <finder-column name="lastName"></finder-column>
+            <finder-column name="optIn"></finder-column>
+        </finder>
+        <finder name="OptIn" return-type="Collection">
+            <finder-column name="optIn"></finder-column>
+        </finder>
+	</entity>
+    <exceptions>
+        <exception>PatientRegistrationException</exception>
+    </exceptions>
+</service-builder>

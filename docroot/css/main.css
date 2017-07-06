@@ -1,0 +1,49 @@
+body{
+    background: #eee;
+    text-align: center;
+}
+#patient-reg-table
+{
+    margin: 0 auto;
+    text-align: left;
+}
+
+#patient-btn-table
+{
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+}
+
+#patient-reg-pcp-table
+{
+    margin: 0 auto;
+    text-align: left;
+}
+
+.eVal{
+    font-family: ligurnio;
+    color: #ff0000;
+}
+
+#state {
+	font-size: 12px;
+	width: 175px;
+}
+
+.patient-search-criteria-table
+{
+	border: 2px solid gray;
+}
+
+td {
+    
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+
+th {
+	border-bottom: 1px solid black;
+}
