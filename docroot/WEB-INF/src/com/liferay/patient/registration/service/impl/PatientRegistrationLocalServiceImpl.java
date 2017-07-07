@@ -286,8 +286,22 @@ public class PatientRegistrationLocalServiceImpl
 	
 	@SuppressWarnings("unchecked")
 	public List<PatientRegistration> getPatientSearchResultsForKeywords(String keywords, boolean andSearch, int start, int end) throws SystemException {
-		DynamicQuery dynamicQuery = buildPatientDynamicQueryForKeywords(keywords, andSearch);
-		return PatientRegistrationLocalServiceUtil.dynamicQuery(dynamicQuery, start, end);
+		
+		//DynamicQuery dynamicQuery = buildPatientDynamicQueryForKeywords(keywords, andSearch);
+		//return PatientRegistrationLocalServiceUtil.dynamicQuery(dynamicQuery, start, end);
+				
+		DynamicQuery dynamicQuery = null;
+		List<PatientRegistration> patients = null;
+		
+		if (keywords != null && !keywords.equalsIgnoreCase("")) {
+			//System.out.println("@@@ getPatientSearchResultsForKeywords - Got A Subset of Data for the keywords: "+keywords);
+			dynamicQuery = buildPatientDynamicQueryForKeywords(keywords, andSearch);
+			patients = PatientRegistrationLocalServiceUtil.dynamicQuery(dynamicQuery, start, end);
+		} else {
+			//System.out.println("@@@ getPatientSearchResultsForKeywords - Got All Patient Data since the keywords string is null or spaces: "+keywords);
+			patients = getAllPatients();
+		}
+		return patients;
 	}
 	
 	public int getPatientsSearchCount(String firstName,String lastName, int optInFlag, boolean andSearch) throws SystemException {
@@ -296,8 +310,21 @@ public class PatientRegistrationLocalServiceImpl
 	}
 	
 	public int getPatientsSearchCountForKeywords(String keywords, boolean andSearch) throws SystemException {
-		DynamicQuery dynamicQuery = buildPatientDynamicQueryForKeywords(keywords, andSearch);
-		return (int) PatientRegistrationLocalServiceUtil.dynamicQueryCount(dynamicQuery);
+		
+		DynamicQuery dynamicQuery = null;
+		int resultsCount = 0;
+		
+		if (keywords != null && !keywords.equalsIgnoreCase("")) {
+			//System.out.println("@@@ getPatientsSearchCountForKeywords - Got A Subset of Data for the keywords: "+keywords);
+			dynamicQuery = buildPatientDynamicQueryForKeywords(keywords, andSearch);
+			resultsCount = (int) PatientRegistrationLocalServiceUtil.dynamicQueryCount(dynamicQuery);
+		} else {
+			//System.out.println("@@@ getPatientsSearchCountForKeywords - Got All Patient Data since the keywords string is null or spaces: "+keywords);
+			resultsCount = getAllPatients().size();
+		}
+		return resultsCount;
+		
+//		return (int) PatientRegistrationLocalServiceUtil.dynamicQueryCount(dynamicQuery);
 	}
 	
 	protected DynamicQuery buildPatientDynamicQuery(String firstName, String lastName, boolean andSearch, int optInFlag) {

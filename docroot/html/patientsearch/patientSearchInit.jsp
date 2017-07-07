@@ -50,5 +50,5 @@
 String currentURL = PortalUtil.getCurrentURL(request);
 String firstName = ParamUtil.getString(request, "firstName");
 String lastName = ParamUtil.getString(request, "lastName");
-int optIn = ParamUtil.getInteger(request, "optFlag");
+
 %>

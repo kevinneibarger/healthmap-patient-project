@@ -24,7 +24,7 @@
 		<aui:select name="optFlag" label="Patient Opt-In">
 			<aui:option label="Opt-In" value="1"></aui:option>
 			<aui:option label="Opt-Out" value="0"></aui:option>
-			<aui:option label="No Preference" value="-1" selected="-1"></aui:option>
+			<aui:option label="No Preference" value="-1"></aui:option>
 		</aui:select>
 	</aui:form>
 	
